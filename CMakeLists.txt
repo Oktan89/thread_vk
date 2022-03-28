@@ -4,6 +4,7 @@ set(PROJECT_VESRION 0.0.1)
 set(MY_PROJECT_NAME thread_vk)
 project(${MY_PROJECT_NAME} VERSION ${PROJECT_VESRION})
 
+find_package( Threads )
 
 add_executable(${MY_PROJECT_NAME} main.cpp
                                
@@ -24,6 +25,8 @@ else ()
         -Wall -Wextra -pedantic -Werror
     )
 endif()
+
+target_link_libraries( thread_vk ${CMAKE_THREAD_LIBS_INIT} )
 
 install(TARGETS ${MY_PROJECT_NAME} RUNTIME DESTINATION bin)
 
