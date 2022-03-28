@@ -25,8 +25,8 @@ int main()
         {
             std::unique_lock<std::mutex> ls2(mut);
             cv.wait(ls2, [](){return !sw;});
-                std::cout << "[1";
-                sw = true;
+            std::cout << "[1";
+            sw = true;
             cv.notify_one();
         }
     };
