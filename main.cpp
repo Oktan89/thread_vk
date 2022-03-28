@@ -31,8 +31,11 @@ int main()
         }
     };
 
-    std::thread(thread1).join();
-    std::thread(thread2).join();
+    auto start1 = std::thread(thread1);
+    auto start2 = std::thread(thread2);
+
+    start1.join();
+    start2.join();
 
     return 0; 
 }
